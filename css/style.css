@@ -1,0 +1,252 @@
+*{
+  /*background-color: rgb(229, 229, 229);*/
+}
+
+.pageStyle{
+    font-size: 14px;
+}
+
+.title{
+  font-size: 22px;
+}
+
+
+
+
+.italics{
+  font-style: italic;
+}
+
+.bolds{
+  font-weight:bold;
+}
+
+.aligns {
+  vertical-align: bottom;
+  line-height: 10px;
+}
+
+.menu{
+    /*border: 3px solid rgb(41, 85, 167);*/
+    /*border-radius: 2rem;*/
+    background-color: rgb(247, 247, 247);
+    box-sizing: border-box;
+    display: flex;
+    grid-template-columns: 300px;
+    height: 90vh;
+    padding: 10px;
+    
+    
+}
+
+.menu2{
+    height: 722px;
+}
+
+.innerBubble{
+    /*border: 3px solid rgb(157, 187, 244);*/
+    /*border-radius: 2rem;*/
+    /*background-color: rgb(247, 247, 247);*/
+    padding:10px;
+    margin:5px;
+    box-sizing: border-box;
+    display: flow-root;
+    /*max-height: 300px;*/
+}
+
+.projectBubble{
+  border: 3px solid #59b1fd;
+  /*border-radius: 2rem;*/
+  border-radius: 0.8rem;
+  background-color: #a4d5ff;
+  padding: 10px;
+  margin: 5px;
+  box-sizing: border-box;
+  display: flow-root;
+
+  font-family: "Roboto", sans-serif;
+  
+}
+
+.sizeVideo{
+    /*min-height: 150px;*/
+}
+.sizeShort{
+    /*min-height: 10px;*/
+}
+.sizeDescription{
+    /*min-height: 200px;*/
+}
+
+
+.imgC {
+  /*border: 1px solid #ddd;
+  border-radius: 4px;*/
+  /*padding: 5px;
+  width: 150px;*/
+  width:100%;
+  height:100%;
+}
+
+iframe {
+  /*border-radius: 1px;*/
+  /*border: 1px solid #ddd;
+  
+  padding: 5px;*/
+  width: 150px;
+  width:100%;
+}
+
+
+.layoutMenu2projects{
+    display:grid;
+    grid-template-columns: 25vw 20vw; /*projects stored in 2 columns*/
+}
+
+.layoutProjectsFrame{
+    display:grid;
+    grid-template-columns: 35vw 35vw; /*projects stored in 2 columns*/
+}
+
+
+
+
+/* checkbox custom painting - All code below provided by W3 - ////////////////////////////////////////////////////////////////////*/
+
+ /* Customize the label (the container) */
+ .Ccontainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+  }
+  
+  /* Hide the browser's default checkbox */
+  .Ccontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .Ccheckmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #3ea6ff;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .Ccontainer:hover input ~ .Ccheckmark {
+    background-color: rgb(225, 38, 38);
+    background-color: rgb(165, 173, 246);
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .Ccontainer input:checked ~ .Ccheckmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .Ccheckmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .Ccontainer input:checked ~ .Ccheckmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .Ccontainer .Ccheckmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  } 
+
+  /* radio button custom painting //////////////////////////////////////////////////////////////////////////////////////////////*/
+
+   /* Customize the label (the container) */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #3ea6ff;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+    background-color: #1692ff;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #00f;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  } 

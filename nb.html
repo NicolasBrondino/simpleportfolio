@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" overflow-y: scroll;>
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="data.js"></script>
+</head>
+<body class="pageStyle">
+
+    <script>
+        
+
+let totalProjects = projects.length;
+        let globalCpp = 0;
+        let globalJs = 0;
+        let globalCV = 0;
+        let globalAI = 0;
+        let globalRobots = 0;
+        let globalWeb = 0;
+        let globalLearn = 0;
+        let noSourceChecked = false;
+        for (let i = 0; i < projects.length; i++) {
+            if (projects[i].language == "C++")
+                globalCpp++;
+            if (projects[i].language == "HTML/CSS/JS")
+                globalJs++;
+            if (projects[i].domain == "computer vision")
+                globalCV++;
+            if (projects[i].domain == "robots")
+                globalRobots++;
+            if (projects[i].domain == "AI")
+                globalAI++;
+            if (projects[i].domain == "Web")
+                globalWeb++;
+            if (projects[i].domain == "Learning ressource")
+                globalLearn++;
+        }
+        console.log("cpp found : " + globalCpp);
+        console.log("Js found : " + globalJs);
+        console.log("CV found : " + globalCV);
+        console.log("Robots found : " + globalRobots);
+        console.log("AI found : " + globalAI);
+        console.log("Web found : " + GlobalWeb);
+        console.log("Learn found : " + GlobalLearn);
+        console.log("total projects : " + totalProjects);
+        console.log("noSourceChecked : " + noSourceChecked);
+
+
+        //generateProjects("allproj");
+    </script>
+    
+    <main class="layoutMenu2projects">
+        <!--fenetre du menu latéral pour sélectionner les projets-->  
+            <div class="projectBubble menu2 ">
+                <div>
+                    
+                    <br>
+                    <label class="container bolds">Show projets in all languages (<script>document.write(totalProjects)</script>)
+                        <input type="radio" name="radio1"  id="A_allproj" checked="true">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Only C/C++ projects (<script>document.write(globalCpp)</script>)
+                        <input type="radio" name="radio1"  id="A_cpp">
+                        <span class="checkmark"></span>
+                    </label>
+                    <!--<label class="container">Only Embedded C/C++ projects (0)
+                        <input type="radio" name="radio1"  id="A_embedcpp">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Only Python projects (0)
+                        <input type="radio" name="radio1"  id="A_python">
+                        <span class="checkmark"></span>
+                    </label>-->
+                    <label class="container">Only HTML/Javascript/PHP projects (<script>document.write(globalJs)</script>)
+                        <input type="radio" name="radio1"  id="A_js">
+                        <span class="checkmark"></span>
+                    </label>
+                    <br>
+                    <label class="container bolds">Show all industries related projects (<script>document.write(totalProjects)</script>)
+                        <input type="radio" name="radio1"  id="A_allindustries">
+                        <span class="checkmark"></span>
+                    </label>
+                      <!--<label class="container">Only related to AR/VR (0)
+                        <input type="radio" name="radio1"  id="A_arvr">
+                        <span class="checkmark"></span>
+                      </label>-->
+                      <label class="container">Only related to AI (<script>document.write(globalAI)</script>)
+                        <input type="radio" name="radio1"  id="A_ai">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="container">Only related to web (<script>document.write(globalWeb)</script>)
+                        <input type="radio" name="radio1"  id="A_web">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="container">Only related to learning ressources (<script>document.write(globalLearn)</script>)
+                        <input type="radio" name="radio1"  id="A_learn">
+                        <span class="checkmark"></span>
+                      </label>
+                      <!--<label class="container">Only related to Automotive (0)
+                        <input type="radio" name="radio1"  id="A_automotive">
+                        <span class="checkmark"></span>
+                      </label>-->
+                      <label class="container">Only related to robotics/SLAM/LIDAR/Sensors (<script>document.write(globalRobots)</script>)
+                        <input type="radio" name="radio1"  id="A_robots">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="container">Only related to computer vision / NLP (<script>document.write(globalCV)</script>)
+                        <input type="radio" name="radio1"  id="A_compvisionnlp">
+                        <span class="checkmark"></span>
+                      </label>
+                      <br>
+                    <!--<label class="Ccontainer bolds">
+                        <input type="checkbox" id="A_removenosource" name="checkSource">Remove projects where Github source code isn't available
+                        <span class="Ccheckmark"></span>
+                      </label>-->
+
+                </div>
+                <div class="innerBubble">
+                    
+                    <div class="title bolds">NB's dev portfolio<br></div>
+                    <div class="bolds">Looking to work contract & permanent roles<br></div>
+                    <div class="bolds">Area : Worldwide (EMEA, USA, & APAC)<br></div>
+                    <div class="bolds">email : <a href="mailto:someone@yoursite.com">NicolasBrondino@pm.me</a> <br></div>
+                     <div class="bolds">WhatsApp/phone :
+                     +33 6 69 61 33 81<br></div>
+                     <a href="7_EN_Nicolas_Brondino_resume.pdf"><img class="imgC" src="resume_icon2.png" ></a>
+                </div>
+            </div>
+
+        <div id="innerdiv"></div>
+         <script>
+
+
+/* actions : radio buttons, languages */
+const radioButtons = document.querySelectorAll('input[name="radio1"]');
+
+        // radio button "all projects"
+        const btn5 = document.querySelector('#A_allproj');        
+        btn5.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            console.log("all projects");
+            generateProjects("allproj");
+        });
+
+        // radio button "only cpp projects"
+        const btn4 = document.querySelector('#A_cpp');        
+        //const radioButtons = document.querySelectorAll('input[name="size"]');
+        btn4.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            console.log("only c/cpp projects");
+            generateProjects("C++");
+        });
+
+        // radio button "only cpp projects"
+        /*const btn3 = document.querySelector('#A_embedcpp');        
+        //const radioButtons = document.querySelectorAll('input[name="size"]');
+        btn3.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            //output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+            console.log("only embedded c/cpp projects");
+            generateProjects("embed");
+        });*/
+
+        /*// radio button "only embedded c++ projects"
+        const btn2 = document.querySelector('#A_js');        
+        //const radioButtons = document.querySelectorAll('input[name="size"]');
+        btn2.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            //output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+            console.log("only js/php projects");
+            generateProjects("C");
+
+        });*/
+
+
+        // radio button "only c projects"
+        const btn7 = document.querySelector('#A_js');        
+        //const radioButtons = document.querySelectorAll('input[name="size"]');
+        btn7.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            //output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+            console.log("only js projects");
+            generateProjects("HTML/CSS/JS");
+        });
+
+        // radio button "only python projects"
+        /*const btn1 = document.querySelector('#A_python');        
+        //const radioButtons = document.querySelectorAll('input[name="size"]');
+        btn1.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            //output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+            console.log("only python projects");
+            generateProjects("python");
+        });*/
+        
+
+/* actions : radio buttons, industries */
+        // radio button "all industries"
+        const btn10 = document.querySelector('#A_allindustries');        
+        btn10.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            //output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+            console.log("all projects");
+            //document.getElementById("innerdiv").innerHTML = justBirds + justBirds + justBirds;
+            generateProjects("allproj");
+        });
+
+        // radio button "AR / VR"
+        /*const btn11 = document.querySelector('#A_arvr');        
+        btn11.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            //output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+            console.log("only AR/VR projects");
+            //document.getElementById("innerdiv").innerHTML = justBirds + justBirds + justBirds;
+            generateProjects("AR/VR");
+        });*/
+
+        // radio button "AI"
+        const btn12 = document.querySelector('#A_ai');        
+        btn12.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            //output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+            console.log("only AI projects");
+            //document.getElementById("innerdiv").innerHTML = justBirds + justBirds + justBirds;
+            generateProjects("AI");
+        });
+
+                // radio button "web"
+                const btn30 = document.querySelector('#A_web');        
+                btn30.addEventListener("click", () => {
+            console.log("AAA");
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            //output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+            console.log("only web projects");
+            //document.getElementById("innerdiv").innerHTML = justBirds + justBirds + justBirds;
+            console.log("BBB");
+            generateProjects("Web");
+        });
+
+
+                // radio button "learning ressource"
+                const btn31 = document.querySelector('#A_learn');        
+                btn31.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            //output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+            console.log("only learning ressource projects");
+            //document.getElementById("innerdiv").innerHTML = justBirds + justBirds + justBirds;
+            generateProjects("Learning ressource");
+        });
+
+        // radio button "automotive"
+        /*const btn13 = document.querySelector('#A_automotive');        
+        btn13.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            //output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+            console.log("only automotive projects");
+            //document.getElementById("innerdiv").innerHTML = justBirds + justBirds + justBirds;
+            generateProjects("automotive");
+        });*/
+
+        // radio button "robotics"
+        const btn14 = document.querySelector('#A_robots');        
+        btn14.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            //output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+            console.log("only robot projects");
+            //document.getElementById("innerdiv").innerHTML = justBirds + justBirds + justBirds;
+            generateProjects("robots");
+        });
+
+        // radio button "computer vision / NLP"
+        const btn15 = document.querySelector('#A_compvisionnlp');        
+        btn15.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+            // show the output:
+            //output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+            console.log("only computer vision projects");
+            //document.getElementById("innerdiv").innerHTML = justBirds + justBirds + justBirds;
+            generateProjects("computer vision");
+        });
+
+        // checkbox button "remove no source"
+        /*const btn16 = document.querySelector('#A_removenosource');        
+        btn16.addEventListener("click", () => {
+            let selectedSize;
+            //for (const radioButton of radioButtons) {
+                if (noSourceChecked == false) {
+                    //selectedSize = radioButton.value;
+                    
+                    noSourceChecked = true;
+                    console.log("noSourceChecked A: " + noSourceChecked);
+                    
+                    //break;
+                }
+                
+                else{
+                    noSourceChecked = false;
+                    console.log("noSourceChecked B: " + noSourceChecked);
+                }
+
+
+                //console.log("noSourceChecked C: " + checkSource.checked);
+                    
+            
+            // show the output:
+            //output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+            console.log("push remove no source");
+            //document.getElementById("innerdiv").innerHTML = justBirds + justBirds + justBirds;
+            //generateProjects("allproj");
+        });*/
+
+
+
+        function generateProjects(tag){
+            //window.location.reload();
+            // entête avec le layout par 2
+            let myHtmlText = '<div class="layoutProjectsFrame">';
+            // clonage des fenetres projets X 2
+            for (let i = 0; i < projects.length; i++) {
+            let isCPP = projects[i].language == "C++";
+            if (tag == projects[i].language || tag == "allproj" || tag == projects[i].domain)
+                if ((noSourceChecked == true && projects[i].havesource == "true") || noSourceChecked == false)
+               myHtmlText +=
+               `<div class="projectBubble">
+                     <div class="innerBubble ">`
+                        + projects[i].youtube +
+                        `</div>
+                     <div class="innerBubble sizeDescription">
+                        <div class=" sizeShort title">`+ projects[i].title +`</div>
+                        <div class=" sizeShort italics">Tags : `+ projects[i].language +` ; `+ projects[i].domain +` ; `+ projects[i].library +`</div><hr>
+                     
+                        `+ projects[i].description +`
+                     </div>
+                     <div class="innerBubble sizeShort italics"><table><style>table,th,td {padding: 10px;border: 0px solid black;border-collapse: collapse;}</style><tbody><tr><td><img src="octocat2.png"></td><td>`+ projects[i].source +`</td></tr></tbody></table></div>
+                  </div>`;
+               }
+            //fin de l'entête layout par 2
+            myHtmlText += '</div>';
+            let textCopy = myHtmlText;
+            // add generated project section to html page
+
+                document.getElementById("innerdiv").innerHTML = myHtmlText;
+                console.log(tag);
+        }
+        generateProjects("allproj");
+
+
+/*
+            //window.location.reload();
+            // entête avec le layout par 2
+            let myHtmlText = '<div class="layoutProjectsFrame">';
+            // clonage des fenetres projets X 2
+            for (let i = 0; i < projects.length; i++) {
+            let isCPP = projects[i].language == "C++";
+            if (document.getElementById('A_allproj').checked)
+               myHtmlText +=
+               `<div class="projectBubble">
+                     <div class="innerBubble ">
+                        <iframe width="470" height="246" style="border-radius: 2rem;" src="`+ projects[i].youtube +`" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                     </div>
+                     <div class="innerBubble">
+                        <div class=" sizeShort title">`+ projects[i].title +`</div>
+                        <div class=" sizeShort italics">Tags : `+ projects[i].language +` ; `+ projects[i].domain +` ; `+ projects[i].library +`</div>
+                     </div>
+                     <div class="innerBubble sizeDescription">
+                        `+ projects[i].description +`
+                     </div>
+                     <div class="innerBubble sizeShort italics">The source code isn't available for this project</div>
+                  </div>`;
+               }
+            //fin de l'entête layout par 2
+            myHtmlText += '</div>';
+            let textCopy = myHtmlText;*/
+
+
+
+
+            //window.location.reload();
+            // entête avec le layout par 2
+            let justBirds = '<div class="layoutProjectsFrame">';
+            // clonage des fenetres projets X 2
+            for (let i = 0; i < 2; i++) {
+                justBirds +=
+               `<div class="projectBubble">
+                     <div class="innerBubble ">
+                        <iframe width="470" height="246" style="border-radius: 2rem;" src="https://www.youtube.com/embed/IsBNNCdHoWc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                     </div>
+                     <div class="innerBubble">
+                        <div class=" sizeShort title">Title : Just Birds</div>
+                        <div class=" sizeShort italics">Tags : no tags defined ; birds ; more birds</div>
+                     </div>
+                     <div class="innerBubble sizeDescription">
+                        It's just a video about birds. It's pretty relaxing, and there are a lot of birds.
+                        I enjoy birds, from their soothing songs to their vivid colors. As a bonus,
+                        this video let you enjoy some nature sceneries as well as calm piano music.
+                        Everything is in 4K. Enjoy.
+                     </div>
+                     <div class="innerBubble sizeShort italics">The source code isn't available for this project</div>
+                  </div>`;
+               }
+            //fin de l'entête layout par 2
+            justBirds += '</div>';
+            let textCopy2 = justBirds;
+            
+      
+      
+    /*
+    // button actions by language  
+            document.getElementById("A_allproj").addEventListener("click", function () {
+               textCopy = myHtmlText;
+               // purge le document html et remplace par le contenu créé
+               document.getElementById("innerdiv").innerHTML = textCopy;
+               // ajoute à la fin du document html existant
+               //document.getElementById("innerdiv").innerHTML += myHtmlText;
+            });
+            document.getElementById("A_cpp").addEventListener("click", function () {
+               textCopy = myHtmlText;
+               document.getElementById("innerdiv").innerHTML = textCopy;
+            });
+            document.getElementById("A_embedcpp").addEventListener("click", function () {
+               textCopy = myHtmlText;
+               document.getElementById("innerdiv").innerHTML = textCopy;
+            });
+            document.getElementById("A_c").addEventListener("click", function () {
+               textCopy = myHtmlText;
+               document.getElementById("innerdiv").innerHTML = textCopy;
+            });
+            document.getElementById("A_python").addEventListener("click", function () {
+               document.getElementById("innerdiv").innerHTML = justBirds + justBirds + justBirds;
+            });
+
+
+    // button actions by industries
+    // à compléter
+    
+    // action for checkbox, no source code
+            document.getElementById("A_removenosource").addEventListener("click", function () {
+               document.getElementById("innerdiv").innerHTML = justBirds + justBirds + justBirds;
+            });*/
+      
+         </script>
+
+
+
+
+    
+    </main> <!--fin page-->
+
+
+
+
+
+
+
+</body>
+</html>
